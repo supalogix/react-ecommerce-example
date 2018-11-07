@@ -1,12 +1,16 @@
 import React from "react"
 import PropTypes from "prop-types"
 import HomePage from "../body-home-page"
+import LoginPage from "../body-login-page"
+import * as ActivePage from "../../enum-active-pages"
 
 export const Component =  props => {
     switch(props.data.activePage)
     {
-        case "HomePage":
+        case ActivePage.HOME_PAGE:
             return <HomePage />
+        case ActivePage.LOGIN_PAGE:
+            return <LoginPage />
         default: 
             return <div>Error: Could Not Find Body</div>
     }

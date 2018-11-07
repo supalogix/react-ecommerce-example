@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "connected-react-router": "^5.0.1",
     "linq": "^3.1.1",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-redux": "^5.1.0",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
     "recompose": "^0.30.0",
     "reselect": "^4.0.0",
@@ -35,7 +37,10 @@
     "@storybook/addon-links": "^4.0.2",
     "@storybook/addons": "^4.0.2",
     "@storybook/react": "^4.0.2",
+    "apollo-server-express": "^2.2.0",
     "babel-loader": "^8.0.4",
-    "chai": "^4.2.0"
+    "chai": "^4.2.0",
+    "express": "^4.16.4",
+    "graphql": "^14.0.2"
   }
 }

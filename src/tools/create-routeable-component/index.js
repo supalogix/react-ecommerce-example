@@ -1,7 +1,7 @@
 import React from "react"
 
-export default (Component, onEnter, onLeave) => {
-    return class RoutableComponent extends React.PureComponent 
+export default (onEnter, onLeave, Component) => {
+    class RouteableComponent extends React.PureComponent 
     {
         componentDidMount()
         {
@@ -18,6 +18,8 @@ export default (Component, onEnter, onLeave) => {
             return <Component />
         }
     }
+
+    return <RouteableComponent />
 }
 
 

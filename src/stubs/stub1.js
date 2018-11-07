@@ -1,5 +1,5 @@
-import {createStore} from "../../tools"
-import {loadApp} from "../../actions"
+import {createStore} from "../tools"
+import {loadApp} from "../actions"
 
 const store = createStore()
 

@@ -10,11 +10,18 @@ export default dispatch => state => {
 
 export function createData(state)
 {
-    return state
+    return {
+        ...state.products,
+        canEdit: state.userRole === "admin"
+    }
 }
 
 export function createCallbacks(dispatch, state)
 {
     return {
+        onEditClick: (productId) => () => dispatch({
+            type: "EDIT_PRODUCT",
+            payload: productId
+        })
     }
 }

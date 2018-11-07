@@ -1,8 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Admin from "../body-home-page-admin"
-import Customer from "../body-home-page-customer"
-import Guest from "../body-home-page-guest"
+import * as ActivePage from "../../enum-active-pages"
+import Guest from "../body-login-page-guest"
 
 export const Component =  props => {
     const {
@@ -11,12 +10,9 @@ export const Component =  props => {
 
     switch(userRole)
     {
-        case "admin":
-            return <Admin />
-        case "customer":
-            return <Customer />
         case "guest":
             return <Guest />
+
         default:
             return <div>Error: could not find userRole for Body Home Page</div>
     }
@@ -24,7 +20,7 @@ export const Component =  props => {
 
 Component.propTypes = {
     data: PropTypes.shape({
-        userRole: PropTypes.string
+        userRole: PropTypes.string.isRequired
     }),
     callbacks: PropTypes.shape({
     })
@@ -32,7 +28,7 @@ Component.propTypes = {
 
 Component.defaultProps = {
     data: {
-        userRole: ""
+        userRole: "",
     },
     callbacks: {
     }

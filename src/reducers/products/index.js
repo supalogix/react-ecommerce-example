@@ -3,7 +3,8 @@ import initialState from "./initial-state"
 
 export default (state = initialState, action = {}) => {
     const handlers = {
-        [ActionType.ENTER_HOME_PAGE]: handleEnterHomePage
+        [ActionType.RECEIVE_INIT_HOME_PAGE_DATA]: 
+            handleReceiveInitHomePageData
     }
 
     if(action.type in handlers)
@@ -19,7 +20,23 @@ export default (state = initialState, action = {}) => {
     }
 }
 
-export function handleEnterHomePage(state, action)
+export function handleReceiveInitHomePageData(state, action)
 {
-    return "HomePage"
+    let data = {}
+    action.payload.featuredProducts.forEach(item => {
+        data[item.productId] = item;
+    })
+
+    const sortOrder = Object.keys(data)
+
+    return {
+        data: {
+            ...state.data,
+            ...data
+        },
+        sortOrder: [
+            ...state.sortOrder,
+            ...sortOrder
+        ]
+    }
 }

@@ -11,6 +11,7 @@ export default dispatch => state => {
 export function createData(state)
 {
     return {
+        ...state.homePageDataEntry
     }
 }
 
