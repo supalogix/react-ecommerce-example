@@ -8,35 +8,55 @@ const {
     GraphQLString
 } = require("graphql");
 
-let people = {
+let products = {
     1: {
-        id: 1,
-        firstname: "john",
-        lastname: "doe"
-    }
+        id: "1",
+        name: "Product 0001",
+        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur lorem erat, at semper nisi porta in. Proin lorem leo, fringilla eu lectus ac, interdum sagittis mi. Fusce rhoncus purus sed vestibulum vehicula. `,
+        retailPrice: "$9.99",
+        imageUrl: "https://via.placeholder.com/250"
+    },
+    2: {
+        id: "2",
+        name: "Product 0002",
+        description: `Sed consectetur lorem erat, at semper nisi porta in. Proin lorem leo, fringilla eu lectus ac, interdum sagittis mi. Fusce rhoncus purus sed vestibulum vehicula. `,
+        retailPrice: "$9.99",
+        imageUrl: "https://via.placeholder.com/250"
+    },
+    3: {
+        id: "3",
+        name: "Product 0003",
+        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit Proin lorem leo, fringilla eu lectus ac, interdum sagittis mi.`,
+        retailPrice: "$9.99",
+        imageUrl: "https://via.placeholder.com/250"
+    },
 }
 
 // Construct a schema, using GraphQL schema language
 const typeDefs = gql`
 type Query {
-    getPerson(id:Int!):Person
-    people(id:Int!):[Person]
+    getProduct(id:Int!):Product
+    products(id:Int!):[Product]
 }
 
 type Mutation {
-    addPerson(person:PersonInput):String
+    addProduct(product:ProductInput):String
 }
 
-input PersonInput {
+input ProductInput {
     id: ID!
-    firstname: String
-    lastname: String
+    name: String
+    description: String
+    retailPrice: String
+    imageUrl: String
 }
 
-type Person {
+type Product {
     id: ID!
-    firstname: String
-    lastname: String
+    name: String
+    description: String
+    retailPrice: String
+    imageUrl: String
 }
 `;
 
@@ -44,27 +64,26 @@ type Person {
 // Provide resolver functions for your schema fields
 const resolvers = {
   Query: {
-      getPerson(root, args, context) 
+      getProduct(root, args, context) 
       {
-          return people[args.id]
+          return products[args.id]
       },
-      people(root, args, context) 
+      products(root, args, context) 
       {
-          console.log(people)
         const ret = []
         
-        Object.keys(people).forEach(key => ret.push(people[key]))
+        Object.keys(products).forEach(key => ret.push(products[key]))
         return ret
       }
   },
   Mutation: {
-      addPerson(root, args, context)
+      addProduct(root, args, context)
       {
           const {
-              person
+              product
           } = args
           console.log(args)
-          people[person.id] = person;
+          products[product.id] = product;
       }
   }
 };
