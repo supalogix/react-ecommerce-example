@@ -6,20 +6,26 @@ export const Header = styled.div`
 `
 
 export const HeaderLeft = styled.div`
+    font-size: 2em;
     text-align: left;
 `
 
 export const HeaderRight = styled.div`
+    font-size: 1.25em
     text-align: right;
 `
 
 export const Nav = styled.div`
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    background-color: #333;
+    overflow: hidden;
 `
 export const NavItem = styled.div`
-    border: 1px solid black;
+    float: left;
+    color: #f2f2f2;
     text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
 `
 export const Product = styled.div`
     border: 1px solid black;

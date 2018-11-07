@@ -9,7 +9,10 @@ import {
 export const Component =  props => {
     return <Header>
         <HeaderLeft>Site Name</HeaderLeft>
-        <HeaderRight>Hello Guest</HeaderRight>
+        <HeaderRight>
+            <div>Login</div>
+            <div>Cart</div>
+        </HeaderRight>
     </Header>
 }
 
