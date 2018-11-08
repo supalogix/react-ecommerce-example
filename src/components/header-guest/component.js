@@ -3,30 +3,36 @@ import PropTypes from "prop-types"
 import {
     Header,
     HeaderLeft,
-    HeaderRight
+    HeaderRight,
+    HeaderButton,
 } from "../../styled-components"
 
-export const Component =  props => {
+export const Component = props => {
+    const {
+        callbacks: {
+            onLoginClick,
+        }
+    } = props
+
     return <Header>
         <HeaderLeft>Site Name</HeaderLeft>
         <HeaderRight>
-            <div>Login</div>
-            <div>Cart</div>
+            <HeaderButton onClick={onLoginClick}>Login</HeaderButton>
         </HeaderRight>
     </Header>
 }
 
 Component.propTypes = {
-    data: PropTypes.array,
+    data: PropTypes.object,
     callbacks: PropTypes.shape({
-        onClick: PropTypes.func.isRequired
+        onLoginClick: PropTypes.func.isRequired,
     })
 };
 
 Component.defaultProps = {
-    data: [],
+    data: {},
     callbacks: {
-        onClick: () => {}
+        onLoginClick: () => console.log("override me"),
     }
 }
 

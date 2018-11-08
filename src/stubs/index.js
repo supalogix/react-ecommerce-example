@@ -15,7 +15,7 @@ export const stub3 = createStub(
 export const stub4 = createStub(
     stub3,
     action.receiveInitHomePageData({
-        featuredProducts: [
+        products: [
             {
                 productId: "0001",
                 name: "Product 0001",

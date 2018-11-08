@@ -24,10 +24,10 @@ export const Component =  props => {
             : () => <span>{item.name}</span>
 
         return <Product>
+            <ProductImage> <img alt="" src={item.imageUrl} /> </ProductImage>
             <ProductName><Name /></ProductName>
             <ProductPrice><strong>Price:</strong> {item.retailPrice}</ProductPrice>
             <ProductDescription><strong>Description:</strong> {item.description}</ProductDescription>
-            <ProductImage> <img alt="" src={item.imageUrl} /> </ProductImage>
         </Product>
     })
     return <ProductContainer>

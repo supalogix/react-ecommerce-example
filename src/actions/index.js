@@ -5,6 +5,10 @@ export const loadApp = (appSettings) => ({
     payload: appSettings
 })
 
+export const logout = () => ({
+    type: ActionType.LOGOUT
+})
+
 export const visitHomePage = () => ({
     type: ActionType.VISIT_HOME_PAGE
 })
@@ -15,6 +19,14 @@ export const visitLoginPage = () => ({
 
 export const visitCartPage = () => ({
     type: ActionType.VISIT_CART_PAGE
+})
+
+export const visitProductAddPage = () => ({
+    type: ActionType.VISIT_PRODUCT_ADD_PAGE
+})
+
+export const visitProductEditPage = () => ({
+    type: ActionType.VISIT_PRODUCT_EDIT_PAGE
 })
 
 // Enter and Leave Methods
@@ -32,6 +44,22 @@ export const enterLoginPage = () => ({
 
 export const exitLoginPage = () => ({
     type: ActionType.EXIT_LOGIN_PAGE
+})
+
+export const enterProductAddPage = () => ({
+    type: ActionType.ENTER_PRODUCT_ADD_PAGE
+})
+
+export const exitProductAddPage = () => ({
+    type: ActionType.EXIT_PRODUCT_ADD_PAGE
+})
+
+export const enterProductEditPage = () => ({
+    type: ActionType.ENTER_PRODUCT_EDIT_PAGE
+})
+
+export const exitProductEditPage = () => ({
+    type: ActionType.EXIT_PRODUCT_EDIT_PAGE
 })
 
 export const fetchInitHomePageData = () => ({
@@ -70,11 +98,43 @@ export const prepareLoginRequest = () => ({
     type: ActionType.PREPARE_LOGIN_REQUEST,
 })
 
-export const receiveLoginOkData = () => ({
+export const receiveLoginOkData = userRole => ({
+    type: ActionType.RECEIVE_LOGIN_OK_DATA,
+    payload: userRole
+})
+
+export const receiveLoginDeniedData = () => ({
     type: ActionType.RECEIVE_LOGIN_OK_DATA
 })
 
-export const addProductToCart = (productId) => ({
-    type: ActionType.ADD_PRODUCT_TO_CART,
-    payload: productId
+export const changeProductAddField = (name, value) => ({
+    type: ActionType.CHANGE_PRODUCT_ADD_FIELD,
+    payload: {
+        name,
+        value
+    }
+})
+
+export const changeProductEditField = (name, value) => ({
+    type: ActionType.CHANGE_PRODUCT_ADD_FIELD,
+    payload: {
+        name,
+        value
+    }
+})
+
+export const requestAddProduct = () => ({
+    type: ActionType.REQUEST_ADD_PRODUCT
+})
+
+export const prepareAddProductRequest = () => ({
+    type: ActionType.PREPARE_ADD_PRODUCT_REQUEST
+})
+
+export const receiveAddProductOkData = () => ({
+    type: ActionType.RECEIVE_ADD_PRODUCT_OK_DATA
+})
+
+export const receiveAddProductErrorData = () => ({
+    type: ActionType.RECEIVE_ADD_PRODUCT_ERROR_DATA
 })

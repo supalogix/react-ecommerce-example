@@ -9,6 +9,10 @@ import { Route, Switch } from "react-router"
 
 import * as Action from "./actions"
 import mw from "./middlewares/router"
+import enterHomePageHandler from "./middlewares/enter-home-page-handler"
+import requestLoginHandler from "./middlewares/request-login-handler"
+import requestAddProductHandler from "./middlewares/request-add-product-handler"
+import logger from "./middlewares/logger"
 import {
     applyMiddleware,
     createStore,
@@ -29,10 +33,16 @@ const _reducers = combineReducers({
     router: connectRouter(history),
     ...reducers
 });
+
 const _mw = compose(
     applyMiddleware(
         routerMiddleware(history),
-        mw(history)))
+        mw(history),
+        enterHomePageHandler,
+        requestLoginHandler,
+        requestAddProductHandler,
+        logger
+    ))
 
 const store = createStore(
     _reducers,
@@ -50,12 +60,24 @@ export const LoginPage = () => createRouteableComponent(
   () => store.dispatch(Action.exitLoginPage()),
   App)
 
+export const ProductAddPage = () => createRouteableComponent(
+  () => store.dispatch(Action.enterProductAddPage()),
+  () => store.dispatch(Action.exitProductAddPage()),
+  App)
+
+export const ProductEditPage = () => createRouteableComponent(
+  () => store.dispatch(Action.enterProductEditPage()),
+  () => store.dispatch(Action.exitProductEditPage()),
+  App)
+
 export default () => <Provider store={store}>
     <ConnectedRouter history={history}>
       <Switch>
         <div>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/product-add" component={ProductAddPage} />
+          <Route exact path="/product-edit/:id" component={ProductEditPage} />
         </div>
       </Switch>
     </ConnectedRouter>

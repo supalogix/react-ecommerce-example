@@ -1,98 +1,109 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Admin from "../body-home-page-admin"
-import Customer from "../body-home-page-customer"
-import Guest from "../body-home-page-guest"
+import {
+    EditForm,
+    EditField,
+    EditLabel,
+    EditInput,
+    EditButton
+} from "../../styled-components"
+import * as Role from "../../enum-roles"
 
 export const Component =  props => {
     const {
         data: {
+            userRole,
             productName,
             imageUrl,
-            desc,
+            description,
             retailPrice,
-            listingPrice,
-            categories
         },
         callbacks: {
             onProductNameChanged,
             onImageUrlChanged,
             onDescriptionChanged,
             onRetailPriceChanged,
-            onListingPriceChanged,
-            onCategoryChanged,
+            onSubmit,
         }
     } = props
 
-    return <div>
-        <div>
-            <label for="productName">Product Name:</label>
-            <input 
-                id="productName" 
-                type="text" 
-                onChange={onProductNameChanged}
-                defaultValue={productName} />
-        </div>
+    if(userRole === Role.GUEST)
+        return <div>You are not authorized to view this page</div>
 
-        <div>
-            <label for="imageUrl">Image Url:</label>
-            <input 
-                id="imageUrl" 
-                type="text" 
-                onChange={onImageUrlChanged}
-                defaultValue={imageUrl} />
-        </div>
+    return <EditForm>
+        <EditField>
+            <EditLabel>
+                <label for="productName">
+                    Product Name:
+                </label>
+            </EditLabel>
+            <EditInput>
+                <input 
+                    id="productName" 
+                    type="text" 
+                    onChange={onProductNameChanged}
+                    defaultValue={productName} />
+            </EditInput>
+        </EditField>
 
-        <div>
-            <label for="desc">Description:</label>
-            <textarea 
-                onChange={onDescriptionChanged}
-                rows="4" 
-                cols="50">
-                {desc}
-            </textarea>
-        </div>
+        <EditField>
+            <EditLabel>
+                <label for="imageUrl">
+                    Image Url:
+                </label>
+            </EditLabel>
+            <EditInput>
+                <input 
+                    id="imageUrl" 
+                    type="text" 
+                    onChange={onImageUrlChanged}
+                    defaultValue={imageUrl} />
+            </EditInput>
+        </EditField>
 
-        <div>
-            <label for="retailPrice">Retail Price:</label>
-            <input 
-                id="retailPrice" 
-                type="text" 
-                onChange={onRetailPriceChanged}
-                defaultValue={retailPrice} />
-        </div>
+        <EditField>
+            <EditLabel>
+                <label for="desc">
+                    Description:
+                </label>
+            </EditLabel>
+            <EditInput>
+                <textarea 
+                    onChange={onDescriptionChanged}
+                    rows="4" 
+                    cols="50">
+                    {description}
+                </textarea>
+            </EditInput>
+        </EditField>
 
-        <div>
-            <label for="listingPrice">Listing Price:</label>
-            <input 
-                id="listingPrice" 
-                type="text" 
-                onChange={onListingPriceChanged}
-                defaultValue={listingPrice} />
-        </div>
+        <EditField>
+            <EditLabel>
+                <label for="retailPrice">
+                    Retail Price:
+                </label>
+            </EditLabel>
+            <EditInput>
+                <input 
+                    id="retailPrice" 
+                    type="text" 
+                    onChange={onRetailPriceChanged}
+                    defaultValue={retailPrice} />
+            </EditInput>
+        </EditField>
 
-        <div>
-            <label for="categories">Categories:</label>
-            <div>
-                <input type="checkbox" name="book" value="1" checked /> Boat <br />
-                <input type="checkbox" name="clothing" value="2" checked /> clothing <br />
-                <input type="checkbox" name="electronics" value="3" checked /> electronics <br />
-            </div>
-        </div>
-
-        <div> Submit </div>
-    </div>
+        <EditButton onClick={onSubmit}> Submit </EditButton>
+    </EditForm>
 
 }
 
 Component.propTypes = {
     data: PropTypes.shape({
+        userRole: PropTypes.string.isRequired,
         productName: PropTypes.string.isRequired,
         imageUrl: PropTypes.string.isRequired,
-        desc: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
         retailPrice: PropTypes.string.isRequired,
-        listingPrice: PropTypes.string.isRequired,
-        categories: PropTypes.array.isRequired 
     }),
     callbacks: PropTypes.shape({
         onProductNameChanged: PropTypes.func.isRequired,
@@ -100,33 +111,23 @@ Component.propTypes = {
         onDescriptionChanged: PropTypes.func.isRequired,
         onRetailPriceChanged: PropTypes.func.isRequired,
         onListingPriceChanged: PropTypes.func.isRequired,
-        onCategoryChanged: PropTypes.func.isRequired,
     })
 };
 
 Component.defaultProps = {
     data: {
-        productName: "",
-        imageUrl: "",
-        desc: "",
-        retailPrice: "",
-        listingPrice: "",
-        categories: [
-            {
-                name: "option1",
-                value: "1",
-                text: "Some Option",
-                isChecked: true
-            }
-        ]
+        userRole: "override me",
+        productName: "override me",
+        imageUrl: "override me",
+        description: "override me",
+        retailPrice: "override me",
     },
     callbacks: {
-        onProductNameChanged: () => {},
-        onImageUrlChanged: () => {},
-        onDescriptionChanged: () => {},
-        onRetailPriceChanged: () => {}, 
-        onListingPriceChanged: () => {},
-        onCategoryChanged: () => {}
+        onProductNameChanged: () => console.log("override me"),
+        onImageUrlChanged: () => console.log("override me"),
+        onDescriptionChanged:() => console.log("override me"),
+        onRetailPriceChanged: () => console.log("override me"),
+        onSubmit: () => console.log("override me"),
     }
 }
 

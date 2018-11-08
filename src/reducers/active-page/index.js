@@ -5,7 +5,9 @@ import * as ActivePage from "../../enum-active-pages"
 export default (state = initialState, action = {}) => {
     const handlers = {
         [ActionType.ENTER_HOME_PAGE]: handleEnterHomePage,
-        [ActionType.ENTER_LOGIN_PAGE]: handleEnterLoginPage
+        [ActionType.ENTER_LOGIN_PAGE]: handleEnterLoginPage,
+        [ActionType.ENTER_PRODUCT_ADD_PAGE]: handleEnterProductAddPage,
+        [ActionType.ENTER_PRODUCT_EDIT_PAGE]: handleEnterProductEditPage
     }
 
     if(action.type in handlers)
@@ -29,4 +31,14 @@ export function handleEnterHomePage(state, action)
 export function handleEnterLoginPage(state, action)
 {
     return ActivePage.LOGIN_PAGE
+}
+
+export function handleEnterProductAddPage(state, action)
+{
+    return ActivePage.PRODUCT_ADD_PAGE
+}
+
+export function handleEnterProductEditPage(state, action)
+{
+    return ActivePage.PRODUCT_EDIT_PAGE
 }

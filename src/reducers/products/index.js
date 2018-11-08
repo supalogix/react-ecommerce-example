@@ -23,8 +23,8 @@ export default (state = initialState, action = {}) => {
 export function handleReceiveInitHomePageData(state, action)
 {
     let data = {}
-    action.payload.featuredProducts.forEach(item => {
-        data[item.productId] = item;
+    action.payload.products.forEach(item => {
+        data[item.id] = item;
     })
 
     const sortOrder = Object.keys(data)
@@ -34,9 +34,6 @@ export function handleReceiveInitHomePageData(state, action)
             ...state.data,
             ...data
         },
-        sortOrder: [
-            ...state.sortOrder,
-            ...sortOrder
-        ]
+        sortOrder
     }
 }

@@ -1,3 +1,5 @@
+import * as Action from "../../actions"
+
 export default dispatch => state => {
     const data = createData(state)
     const callbacks = createCallbacks(dispatch, state)
@@ -10,12 +12,12 @@ export default dispatch => state => {
 
 export function createData(state)
 {
-    return state.cart
+    return {}
 }
 
 export function createCallbacks(dispatch, state)
 {
     return {
-        onClick: () => {}
+        onLoginClick: () => dispatch(Action.visitLoginPage()),
     }
 }

@@ -10,11 +10,18 @@ export default dispatch => state => {
 
 export function createData(state)
 {
-    return state
+    return {
+        ...state.products,
+        canEdit: true
+    }
 }
 
 export function createCallbacks(dispatch, state)
 {
     return {
+        onEditClick: (productId) => () => dispatch({
+            type: "EDIT_PRODUCT",
+            payload: productId
+        })
     }
 }

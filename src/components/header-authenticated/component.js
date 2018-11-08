@@ -1,25 +1,39 @@
 import React from "react"
 import PropTypes from "prop-types"
+import {
+    Header,
+    HeaderLeft,
+    HeaderRight,
+    HeaderButton,
+} from "../../styled-components"
 
-export const Header =  props => {
-    return <div>
-        <div>Site Name</div>
-        <div>Hello Authenticated</div>
-    </div>
+export const Component = props => {
+    const {
+        callbacks: {
+            onClick
+        }
+    } = props
+
+    return <Header>
+        <HeaderLeft>Site Name</HeaderLeft>
+        <HeaderRight>
+            <HeaderButton onClick={onClick}>Logout</HeaderButton>
+        </HeaderRight>
+    </Header>
 }
 
-Header.propTypes = {
-    data: PropTypes.array,
+Component.propTypes = {
+    data: PropTypes.shape({}),
     callbacks: PropTypes.shape({
         onClick: PropTypes.func.isRequired
     })
 };
 
-Header.defaultProps = {
-    data: [],
+Component.defaultProps = {
+    data: {},
     callbacks: {
-        onClick: () => {}
+        onClick: () => console.log("override me"),
     }
 }
 
-export default Header
+export default Component

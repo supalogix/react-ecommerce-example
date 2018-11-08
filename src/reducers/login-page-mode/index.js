@@ -4,8 +4,8 @@ import initialState from "./initial-state"
 
 export default (state = initialState, action = {}) => {
     const handlers = {
-        [ActionType.CHANGE_USERNAME]: handleChangeUsername,
-        [ActionType.CHANGE_PASSWORD]: handleChangePassword,
+        [ActionType.ENTER_LOGIN_PAGE]: handleEnterLoginPage,
+        [ActionType.REQUEST_LOGIN]: handleRequestLogin,
     }
 
     if(action.type in handlers)
@@ -21,18 +21,12 @@ export default (state = initialState, action = {}) => {
     }
 }
 
-export function handleChangeUsername(state, action)
+export function handleEnterLoginPage(state, action)
 {
-    return {
-        ...state,
-        username: action.payload
-    }
+    return Mode.LOGIN_PAGE_READY
 }
 
-export function handleChangePassword(state, action)
+export function handleRequestLogin(state, action)
 {
-    return {
-        ...state,
-        password: action.payload
-    }
+    return Mode.LOGIN_PAGE_WAITING
 }

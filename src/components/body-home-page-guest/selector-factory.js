@@ -12,7 +12,7 @@ export function createData(state)
 {
     return {
         ...state.products,
-        canEdit: state.userRole === "admin"
+        canEdit: false
     }
 }
 
