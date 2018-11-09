@@ -1,4 +1,4 @@
-# How to use "React Ecommerce Example" for run and profit
+# How to use "React Ecommerce Example" for fun and profit
 
 This is a simple react app that demonstrates basic features of an ecommerce platform.
 
