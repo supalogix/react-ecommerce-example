@@ -57,11 +57,13 @@ export function addProduct(p)
             isOk
         }
     }`
+
+    const url = process.env.REACT_APP_APOLLO_SERVER
     
     return new Promise(resolve => {
 
         request
-            .post("http://localhost:4000/graphql")
+            .post(url)
             .send({ query })
             .end((error, response) => {
                 if(error)

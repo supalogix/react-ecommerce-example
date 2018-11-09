@@ -2,12 +2,15 @@ import * as ActionType from "../action-types"
 import * as Action from "../actions"
 
 export default history => store => next => action => {
-    console.log(action)
-
     next(action)
+
     switch(action.type)
     {
         case ActionType.VISIT_HOME_PAGE:
+            history.push("/")
+            break;
+
+        case ActionType.LOGOUT:
             history.push("/")
             break;
 
