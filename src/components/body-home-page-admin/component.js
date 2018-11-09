@@ -17,10 +17,16 @@ export const Component =  props => {
         canEdit
     } = props.data
 
+    const {
+        onEditClick
+    } = props.callbacks
+
     const children = sortOrder.map(id => {
         const item = data[id]
         const Name = canEdit 
-            ? () => <span>{item.name} <ProductEditLink>[edit]</ProductEditLink></span>
+            ? () => <span>{item.name} 
+                <ProductEditLink onClick={onEditClick(id)}>[edit]</ProductEditLink>
+            </span>
             : () => <span>{item.name}</span>
 
         return <Product>
@@ -53,7 +59,7 @@ Component.defaultProps = {
         canEdit: false
     },
     callbacks: {
-        onEditClick: () => {}
+        onEditClick: () => console.log("override me")
     }
 }
 

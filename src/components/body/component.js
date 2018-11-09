@@ -7,7 +7,11 @@ import ProductEditPage from "../body-product-edit-page"
 import * as ActivePage from "../../enum-active-pages"
 
 export const Component =  props => {
-    switch(props.data.activePage)
+    const {
+        activePage
+    } = props.data
+
+    switch(activePage)
     {
         case ActivePage.HOME_PAGE:
             return <HomePage />
@@ -18,18 +22,22 @@ export const Component =  props => {
         case ActivePage.PRODUCT_EDIT_PAGE:
             return <ProductEditPage />
         default: 
-            return <div>Error: Could Not Find Body</div>
+            return <div>Error: No associated page for {activePage}</div>
     }
 }
 
 Component.propTypes = {
-    data: PropTypes.object,
+    data: PropTypes.shape({
+        activePage: PropTypes.string.isRequired
+    }),
     callbacks: PropTypes.shape({
     })
 };
 
 Component.defaultProps = {
-    data: {},
+    data: {
+        activePage: ""
+    },
     callbacks: {
     }
 }

@@ -54,8 +54,9 @@ export const exitProductAddPage = () => ({
     type: ActionType.EXIT_PRODUCT_ADD_PAGE
 })
 
-export const enterProductEditPage = () => ({
-    type: ActionType.ENTER_PRODUCT_EDIT_PAGE
+export const enterProductEditPage = (id) => ({
+    type: ActionType.ENTER_PRODUCT_EDIT_PAGE,
+    payload: id
 })
 
 export const exitProductEditPage = () => ({
@@ -116,7 +117,7 @@ export const changeProductAddField = (name, value) => ({
 })
 
 export const changeProductEditField = (name, value) => ({
-    type: ActionType.CHANGE_PRODUCT_ADD_FIELD,
+    type: ActionType.CHANGE_PRODUCT_EDIT_FIELD,
     payload: {
         name,
         value
@@ -137,4 +138,36 @@ export const receiveAddProductOkData = () => ({
 
 export const receiveAddProductErrorData = () => ({
     type: ActionType.RECEIVE_ADD_PRODUCT_ERROR_DATA
+})
+
+export const fetchInitEditProductPageData = (id) => ({
+    type: ActionType.FETCH_INIT_EDIT_PRODUCT_PAGE_DATA,
+    payload: id
+})
+
+export const receiveInitEditProductPageData = (payload) => ({
+    type: ActionType.RECEIVE_INIT_EDIT_PRODUCT_PAGE_DATA,
+    payload
+})
+
+export const receiveInitEditProductPageError = (payload) => ({
+    type: ActionType.RECEIVE_INIT_EDIT_PRODUCT_PAGE_ERROR,
+    payload
+})
+
+export const requestEditProduct = () => ({
+    type: ActionType.REQUEST_EDIT_PRODUCT
+})
+
+export const receiveEditProductOkData = (payload) => ({
+    type: ActionType.RECEIVE_EDIT_PRODUCT_OK_DATA,
+    payload
+})
+
+export const receiveEditProductErrorData = () => ({
+    type: ActionType.RECEIVE_EDIT_PRODUCT_ERROR_DATA
+})
+
+export const editProduct = () => ({
+    type: ActionType.EDIT_PRODUCT
 })

@@ -36,7 +36,7 @@ const typeDefs = gql`
     type Mutation {
         login(input:LoginInput):LoginResult
         addProduct(product:ProductInput):AddProductResult
-        editProduct(product:ProductInput):EditProductResult
+        updateProduct(product:ProductInput):UpdateProductResult
     }
 
     input ProductInput {
@@ -61,7 +61,7 @@ const typeDefs = gql`
         isOk: Boolean!
     }
 
-    type EditProductResult {
+    type UpdateProductResult {
         isOk: Boolean!
     }
 
@@ -137,6 +137,28 @@ const resolvers = {
             return {
                 isOk: true
             }
+          }
+      },
+      updateProduct(root, args, context)
+      {
+          const {
+              product
+          } = args
+
+          if(product.id in products)
+          {
+            products[product.id] = product;
+
+            return {
+                isOk: true
+            }
+          }
+          else
+          {
+              // @TODO: add error messages
+              return {
+                  isOk: false
+              }
           }
       }
   }

@@ -15,7 +15,7 @@ export function createData(state)
     const {
         productName,
         imageUrl,
-        description,
+        desc,
         retailPrice
     }
     = state.productPageAddDataEntry
@@ -25,7 +25,7 @@ export function createData(state)
         userRole: state.userRole,
         productName,
         imageUrl,
-        description,
+        description: desc,
         retailPrice
     }
 }
@@ -34,19 +34,19 @@ export function createCallbacks(dispatch, state)
 {
     return {
         onProductNameChanged: e => dispatch(Action
-            .changeProductEditField(
+            .changeProductAddField(
                 "productName",
                 e.currentTarget.value)),
         onImageUrlChanged: e => dispatch(Action
-            .changeProductEditField(
+            .changeProductAddField(
                 "imageUrl",
                 e.currentTarget.value)),
         onDescriptionChanged: e => dispatch(Action
-            .changeProductEditField(
+            .changeProductAddField(
                 "desc",
                 e.currentTarget.value)),
         onRetailPriceChanged: e => dispatch(Action
-            .changeProductEditField(
+            .changeProductAddField(
                 "retailPrice",
                 e.currentTarget.value)),
         onSubmit: e => dispatch(Action

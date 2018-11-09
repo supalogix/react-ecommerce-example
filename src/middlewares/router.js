@@ -35,6 +35,15 @@ export default history => store => next => action => {
             store.dispatch(Action.visitHomePage())
             break;
 
+        case ActionType.RECEIVE_EDIT_PRODUCT_OK_DATA:
+            store.dispatch(Action.visitHomePage())
+            break;
+
+        case ActionType.EDIT_PRODUCT:
+            history.push(`/product-edit/${action.payload}`)
+            break;
+
+
         default:
             break;
     }

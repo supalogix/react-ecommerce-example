@@ -5,7 +5,7 @@ export default (onEnter, onLeave, Component) => {
     {
         componentDidMount()
         {
-            onEnter()
+            onEnter(window.location)
         }
 
         componentWillUnmount()

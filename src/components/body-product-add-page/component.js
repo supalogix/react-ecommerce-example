@@ -69,10 +69,10 @@ export const Component =  props => {
             </EditLabel>
             <EditInput>
                 <textarea 
+                    value={description}
                     onChange={onDescriptionChanged}
                     rows="4" 
                     cols="50">
-                    {description}
                 </textarea>
             </EditInput>
         </EditField>
@@ -110,7 +110,6 @@ Component.propTypes = {
         onImageUrlChanged: PropTypes.func.isRequired,
         onDescriptionChanged: PropTypes.func.isRequired,
         onRetailPriceChanged: PropTypes.func.isRequired,
-        onListingPriceChanged: PropTypes.func.isRequired,
     })
 };
 

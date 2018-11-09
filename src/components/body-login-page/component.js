@@ -12,9 +12,12 @@ export const Component =  props => {
     {
         case "guest":
             return <Guest />
+        
+        case "admin":
+            return <div>You are already authenticated</div>
 
         default:
-            return <div>Error: could not find userRole for Body Home Page</div>
+            return <div>Error: could not find userRole for body-login-page</div>
     }
 }
 

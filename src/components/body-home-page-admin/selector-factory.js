@@ -1,3 +1,5 @@
+import * as ActionType from "../../action-types"
+
 export default dispatch => state => {
     const data = createData(state)
     const callbacks = createCallbacks(dispatch, state)
@@ -20,7 +22,7 @@ export function createCallbacks(dispatch, state)
 {
     return {
         onEditClick: (productId) => () => dispatch({
-            type: "EDIT_PRODUCT",
+            type: ActionType.EDIT_PRODUCT,
             payload: productId
         })
     }

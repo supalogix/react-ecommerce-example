@@ -7,7 +7,7 @@ import {createApp} from "../tools"
 import Enumerable from "linq"
 
 const stubNames = Enumerable
-  .range(1,15)
+  .range(1,34)
   .select((value) => `stub${value}` )
 
 const stories = storiesOf('Stubs', module)

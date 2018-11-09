@@ -12,6 +12,8 @@ import mw from "./middlewares/router"
 import enterHomePageHandler from "./middlewares/enter-home-page-handler"
 import requestLoginHandler from "./middlewares/request-login-handler"
 import requestAddProductHandler from "./middlewares/request-add-product-handler"
+import requestEditProductHandler from "./middlewares/request-edit-product-handler"
+import enterProductEditPageHandler from "./middlewares/enter-product-edit-page-handler"
 import logger from "./middlewares/logger"
 import {
     applyMiddleware,
@@ -41,6 +43,8 @@ const _mw = compose(
         enterHomePageHandler,
         requestLoginHandler,
         requestAddProductHandler,
+        requestEditProductHandler,
+        enterProductEditPageHandler,
         logger
     ))
 
@@ -65,8 +69,19 @@ export const ProductAddPage = () => createRouteableComponent(
   () => store.dispatch(Action.exitProductAddPage()),
   App)
 
+const onProductEditPageEnter = location => {
+  /**
+   * we need to manually parse the location string to 
+   * find the id embedded in the url string
+   */
+  const id = location.href
+    .match(/\/product-edit\/(\d+)/)[1]
+
+  store.dispatch(Action.enterProductEditPage(id))
+};
+
 export const ProductEditPage = () => createRouteableComponent(
-  () => store.dispatch(Action.enterProductEditPage()),
+  onProductEditPageEnter,
   () => store.dispatch(Action.exitProductEditPage()),
   App)
 
