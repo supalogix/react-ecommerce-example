@@ -11,11 +11,17 @@ The following features exist
 
 No validation exists to simplify the source code
 
-With the following commands you can (a) install, (b) build, and (c) serve the app
+With the following commands you can (a) install, (b) build, and (c) serve the frontend app
 
 ```bash
 yarn install
 yarn start
+```
+
+You will also need to start the graphql server too make the frontend app work. You can do that with
+
+```bash
+node apoollo-server/index.js
 ```
 
 Alternatively, if you have docker installed then you can use docker compose to run a continerized versiono
