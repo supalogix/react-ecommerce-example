@@ -1,4 +1,4 @@
-digraph finite_state_machine {
+digraph markov_model {
     pad = 0.25
 
     start -> stub1 [ label = "LOAD_APP" ]
