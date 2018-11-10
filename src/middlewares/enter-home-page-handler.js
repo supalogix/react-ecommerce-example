@@ -3,6 +3,8 @@ import * as ActionType from "../action-types"
 import * as Action from "../actions"
 
 export default store => next => action => {
+    next(action)
+
     if(action.type === ActionType.ENTER_HOME_PAGE)
     {
         store.dispatch(Action
@@ -15,8 +17,6 @@ export default store => next => action => {
                         result.data))
             })
     }
-
-    next(action)
 }
 
 

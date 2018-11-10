@@ -4,6 +4,8 @@ import * as Action from "../actions"
 import {v4} from "uuid"
 
 export default ({dispatch, getState}) => next => action => {
+    next(action)
+
     if(action.type === ActionType.REQUEST_ADD_PRODUCT)
     {
         dispatch(Action.prepareAddProductRequest())
@@ -35,8 +37,6 @@ export default ({dispatch, getState}) => next => action => {
                 }
             })
     }
-
-    next(action)
 }
 
 

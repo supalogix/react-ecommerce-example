@@ -1,4 +1,6 @@
 export default store => next => action => {
+    next(action)
+
     // You can use these to manually debug what happens
     // while the application runs.
 
@@ -10,5 +12,4 @@ export default store => next => action => {
     //   "store state: ",
     //   JSON.stringify(store.getState(), null, 2))
 
-    next(action)
 }
