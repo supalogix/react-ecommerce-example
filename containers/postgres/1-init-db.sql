@@ -422,8 +422,8 @@ WHERE
 -- order to avoid unnecessary temporal duplicates.
 --
 -- BEFORE INSERT trigger ----------------------------------------------------------------------------------------------
--- DROP TRIGGER IF EXISTS tcbPR_NAME_Product_Name ON dbo.PR_NAME_Product_Name;
--- DROP FUNCTION IF EXISTS dbo.tcbPR_NAME_Product_Name();
+DROP TRIGGER IF EXISTS tcbPR_NAME_Product_Name ON dbo.PR_NAME_Product_Name;
+DROP FUNCTION IF EXISTS dbo.tcbPR_NAME_Product_Name();
 CREATE OR REPLACE FUNCTION dbo.tcbPR_NAME_Product_Name() RETURNS trigger AS '
     BEGIN
         -- temporary table is used to create an insert order 
@@ -447,8 +447,8 @@ BEFORE INSERT ON dbo.PR_NAME_Product_Name
 FOR EACH STATEMENT
 EXECUTE PROCEDURE dbo.tcbPR_NAME_Product_Name();
 -- INSTEAD OF INSERT trigger ------------------------------------------------------------------------------------------
--- DROP TRIGGER IF EXISTS tciPR_NAME_Product_Name ON dbo.PR_NAME_Product_Name;
--- DROP FUNCTION IF EXISTS dbo.tciPR_NAME_Product_Name();
+DROP TRIGGER IF EXISTS tciPR_NAME_Product_Name ON dbo.PR_NAME_Product_Name;
+DROP FUNCTION IF EXISTS dbo.tciPR_NAME_Product_Name();
 CREATE OR REPLACE FUNCTION dbo.tciPR_NAME_Product_Name() RETURNS trigger AS '
     BEGIN
         -- insert rows into the temporary table
@@ -467,8 +467,8 @@ INSTEAD OF INSERT ON dbo.PR_NAME_Product_Name
 FOR EACH ROW
 EXECUTE PROCEDURE dbo.tciPR_NAME_Product_Name();
 -- AFTER INSERT trigger -----------------------------------------------------------------------------------------------
--- DROP TRIGGER IF EXISTS tcaPR_NAME_Product_Name ON dbo.PR_NAME_Product_Name;
--- DROP FUNCTION IF EXISTS dbo.tcaPR_NAME_Product_Name();
+DROP TRIGGER IF EXISTS tcaPR_NAME_Product_Name ON dbo.PR_NAME_Product_Name;
+DROP FUNCTION IF EXISTS dbo.tcaPR_NAME_Product_Name();
 CREATE OR REPLACE FUNCTION dbo.tcaPR_NAME_Product_Name() RETURNS trigger AS '
     DECLARE maxVersion int;
     DECLARE currentVersion int = 0;
@@ -555,8 +555,8 @@ AFTER INSERT ON dbo.PR_NAME_Product_Name
 FOR EACH STATEMENT
 EXECUTE PROCEDURE dbo.tcaPR_NAME_Product_Name();
 -- BEFORE INSERT trigger ----------------------------------------------------------------------------------------------
--- DROP TRIGGER IF EXISTS tcbPR_ID_Product_Uuid ON dbo.PR_ID_Product_Uuid;
--- DROP FUNCTION IF EXISTS dbo.tcbPR_ID_Product_Uuid();
+DROP TRIGGER IF EXISTS tcbPR_ID_Product_Uuid ON dbo.PR_ID_Product_Uuid;
+DROP FUNCTION IF EXISTS dbo.tcbPR_ID_Product_Uuid();
 CREATE OR REPLACE FUNCTION dbo.tcbPR_ID_Product_Uuid() RETURNS trigger AS '
     BEGIN
         -- temporary table is used to create an insert order 
@@ -579,8 +579,8 @@ BEFORE INSERT ON dbo.PR_ID_Product_Uuid
 FOR EACH STATEMENT
 EXECUTE PROCEDURE dbo.tcbPR_ID_Product_Uuid();
 -- INSTEAD OF INSERT trigger ------------------------------------------------------------------------------------------
--- DROP TRIGGER IF EXISTS tciPR_ID_Product_Uuid ON dbo.PR_ID_Product_Uuid;
--- DROP FUNCTION IF EXISTS dbo.tciPR_ID_Product_Uuid();
+DROP TRIGGER IF EXISTS tciPR_ID_Product_Uuid ON dbo.PR_ID_Product_Uuid;
+ DROP FUNCTION IF EXISTS dbo.tciPR_ID_Product_Uuid();
 CREATE OR REPLACE FUNCTION dbo.tciPR_ID_Product_Uuid() RETURNS trigger AS '
     BEGIN
         -- insert rows into the temporary table
@@ -598,8 +598,8 @@ INSTEAD OF INSERT ON dbo.PR_ID_Product_Uuid
 FOR EACH ROW
 EXECUTE PROCEDURE dbo.tciPR_ID_Product_Uuid();
 -- AFTER INSERT trigger -----------------------------------------------------------------------------------------------
--- DROP TRIGGER IF EXISTS tcaPR_ID_Product_Uuid ON dbo.PR_ID_Product_Uuid;
--- DROP FUNCTION IF EXISTS dbo.tcaPR_ID_Product_Uuid();
+DROP TRIGGER IF EXISTS tcaPR_ID_Product_Uuid ON dbo.PR_ID_Product_Uuid;
+DROP FUNCTION IF EXISTS dbo.tcaPR_ID_Product_Uuid();
 CREATE OR REPLACE FUNCTION dbo.tcaPR_ID_Product_Uuid() RETURNS trigger AS '
     DECLARE maxVersion int;
     DECLARE currentVersion int = 0;
@@ -672,8 +672,8 @@ EXECUTE PROCEDURE dbo.tcaPR_ID_Product_Uuid();
 -- order to avoid unnecessary temporal duplicates.
 --
 -- BEFORE INSERT trigger --------------------------------------------------------------------------------------------------------
---DROP TRIGGER IF EXISTS itb_lPR_Product ON dbo.lPR_Product;
---DROP FUNCTION IF EXISTS dbo.itb_lPR_Product();
+DROP TRIGGER IF EXISTS itb_lPR_Product ON dbo.lPR_Product;
+DROP FUNCTION IF EXISTS dbo.itb_lPR_Product();
 CREATE OR REPLACE FUNCTION dbo.itb_lPR_Product() RETURNS trigger AS '
     BEGIN
         -- create temporary table to keep inserted rows in
@@ -693,8 +693,8 @@ BEFORE INSERT ON dbo.lPR_Product
 FOR EACH STATEMENT
 EXECUTE PROCEDURE dbo.itb_lPR_Product(); 
 -- INSTEAD OF INSERT trigger ----------------------------------------------------------------------------------------------------
---DROP TRIGGER IF EXISTS iti_lPR_Product ON dbo.lPR_Product;
---DROP FUNCTION IF EXISTS dbo.iti_lPR_Product();
+DROP TRIGGER IF EXISTS iti_lPR_Product ON dbo.lPR_Product;
+DROP FUNCTION IF EXISTS dbo.iti_lPR_Product();
 CREATE OR REPLACE FUNCTION dbo.iti_lPR_Product() RETURNS trigger AS '
     BEGIN
         -- generate anchor ID (if not provided)
@@ -747,8 +747,8 @@ INSTEAD OF INSERT ON dbo.lPR_Product
 FOR EACH ROW
 EXECUTE PROCEDURE dbo.iti_lPR_Product();
 -- AFTER INSERT trigger ---------------------------------------------------------------------------------------------------------
---DROP TRIGGER IF EXISTS ita_lPR_Product ON dbo.lPR_Product;
---DROP FUNCTION IF EXISTS dbo.ita_lPR_Product();
+DROP TRIGGER IF EXISTS ita_lPR_Product ON dbo.lPR_Product;
+DROP FUNCTION IF EXISTS dbo.ita_lPR_Product();
 CREATE OR REPLACE FUNCTION dbo.ita_lPR_Product() RETURNS trigger AS '
     BEGIN
         INSERT INTO dbo.PR_NAME_Product_Name (

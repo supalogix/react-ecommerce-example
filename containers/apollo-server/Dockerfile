@@ -6,4 +6,5 @@ COPY . .
 
 RUN yarn install
 
-CMD [ "node", "apollo-server/index.js" ]
+#CMD [ "node", "apollo-server/index.js" ]
+CMD [ "tail", "-f", "/dev/null" ]

@@ -6,5 +6,5 @@ COPY . .
 
 RUN yarn install
 
-CMD [ "yarn", "start" ]
-#CMD [ "tail", "-f", "/dev/null" ]
+#CMD [ "yarn", "start" ]
+CMD [ "tail", "-f", "/dev/null" ]
