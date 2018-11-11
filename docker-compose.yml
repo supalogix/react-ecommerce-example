@@ -12,6 +12,11 @@ services:
       # you setup for the apollo-server, if you are testing
       # on your localhost. 
       - REACT_APP_APOLLO_SERVER=http://localhost:4000/graphql
+  postgres: 
+    build: 
+      context: ./containers/postgres/
+    ports: 
+      - 5432:5432
   apollo-server:
     build:
       context: .
