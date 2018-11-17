@@ -1,26 +1,32 @@
 version: '3'
 
 services:
-  frontend:
-    build:
-      context: .
-      dockerfile: ./containers/frontend/Dockerfile
-    ports:
-      - 3000:3000
-    environment:
-      # manually ensure that this matches the port mapping
-      # you setup for the apollo-server, if you are testing
-      # on your localhost. 
-      - REACT_APP_APOLLO_SERVER=http://localhost:4000/graphql
   postgres: 
     build: 
       context: ./containers/postgres/
     ports: 
       - 5432:5432
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ./containers/frontend/Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend:/app
+      - /node_modules
+    environment:
+      # manually ensure that this matches the port mapping
+      # you setup for the apollo-server, if you are testing
+      # on your localhost. 
+      - REACT_APP_APOLLO_SERVER=http://localhost:4000/graphql
   apollo-server:
     build:
-      context: .
+      context: ./apollo-server
       dockerfile: ./containers/apollo-server/Dockerfile
+    volumes:
+      - ./apollo-server:/app
+      - /node_modules
     ports:
       - 4000:4000
   

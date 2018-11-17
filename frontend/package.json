@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "connected-react-router": "^5.0.1",
-    "cors": "^2.8.5",
     "linq": "^3.1.1",
     "query-string": "^6.2.0",
     "react": "^16.6.0",
@@ -24,7 +23,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "start-server": "babel-node apollo-server/index.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -37,15 +37,13 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.5",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
     "@storybook/addon-actions": "^4.0.2",
     "@storybook/addon-links": "^4.0.2",
     "@storybook/addons": "^4.0.2",
     "@storybook/react": "^4.0.2",
-    "apollo-server-express": "^2.2.0",
     "babel-loader": "^8.0.4",
-    "chai": "^4.2.0",
-    "express": "^4.16.4",
-    "graphql": "^14.0.2",
-    "supertest": "^3.3.0"
+    "chai": "^4.2.0"
   }
 }

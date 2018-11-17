@@ -1,6 +1,7 @@
 const express = require('express');
 const { ApolloServer, gql } = require('apollo-server-express');
 const cors = require("cors")
+const PostgresResolvers = require("./postgres-resolvers")
 
 let products = {
     "1": {

@@ -2,9 +2,9 @@ FROM node:8.11.0
 
 WORKDIR /app
 
-COPY . .
+#COPY . .
 
-RUN yarn install
+#RUN yarn install
 
 #CMD [ "yarn", "start" ]
 CMD [ "tail", "-f", "/dev/null" ]
