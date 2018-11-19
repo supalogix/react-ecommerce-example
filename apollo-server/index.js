@@ -1,5 +1,5 @@
-const app = require("./app")
-const server = require("./app").server
+import app, { server } from "./app"
+
 const port = 4000;
 
 app.listen({ port }, () =>

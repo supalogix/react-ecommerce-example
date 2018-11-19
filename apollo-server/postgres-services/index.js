@@ -8,6 +8,16 @@ const client = new Client({
 
 client.connect()
 
-module.exports.save = () => {
+export const saveProduct = (product) => {
+}
+
+export const updateProduct = (product) => {
+}
+
+export const getProduct = () => {
+
+}
+
+export const getProducts = () => {
 
 }
