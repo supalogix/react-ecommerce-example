@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node index.js"
+    "dev": "rollup -c -w"
   },
   "dependencies": {
     "apollo-server-express": "^2.2.2",
@@ -17,6 +17,11 @@
     "@babel/core": "^7.1.6",
     "@babel/node": "^7.0.0",
     "@babel/preset-env": "^7.1.6",
+    "rollup": "^0.67.3",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-run": "^1.1.0",
     "supertest": "^3.3.0"
   }
 }
