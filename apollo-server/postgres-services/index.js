@@ -9,15 +9,37 @@ const client = new Client({
 client.connect()
 
 export const saveProduct = (product) => {
+    const sql = `
+        INSERT INTO dbo.lpr_product
+        (
+            
+        )
+        VALUES
+        (
+
+        )
+    `
 }
 
 export const updateProduct = (product) => {
+    const sql = `
+        INSERT INTO dbo.lpr_product
+        (
+
+        )
+        VALUES
+        (
+
+        )
+    `
 }
 
 export const getProduct = () => {
-
+    const sql = `
+    `
 }
 
 export const getProducts = () => {
-
+    const sql = `
+    `
 }
